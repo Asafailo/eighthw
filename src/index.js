@@ -1,17 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import FirstApp from './components/appone/App';
+import SecondApp from './components/apptwo/index';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route, 
+  Link
+} from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Link to ="/first">First Page
+   </Link>
+
+   <Link to ="/second">Second Page
+   </Link>
+
+<Switch>
+
+  <Route exact path="/first">
+<FirstApp/>
+  </Route>
+<Route exact path="second">
+  <SecondApp/>
+</Route>
+
+</Switch>
+
+   </Router>
   </React.StrictMode>,
+
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
